@@ -29,22 +29,30 @@
 
       <div>
         <label for="calories">Calories</label>
-        <input type="number" name="calories" v-model="calories" id="calories" />
+        <input step=".01" type="number" name="calories" v-model="calories" id="calories" />
       </div>
 
       <div>
         <label for="proteins">Proteins</label>
-        <input type="number" name="proteins" v-model="proteins" id="proteins" />
+        <input step=".01" type="number" name="proteins" v-model="proteins" id="proteins" />
       </div>
 
       <div>
         <label for="fat">Fat</label>
-        <input type="number" name="fat" v-model="fat" id="fat" />
+        <input step=".01" type="number" name="fat" v-model="fat" id="fat" />
       </div>
 
       <div>
         <label for="carbs">Carbs</label>
-        <input type="number" name="carbs" v-model="carbs" id="carbs" />
+        <input step=".01" type="number" name="carbs" v-model="carbs" id="carbs" />
+      </div>
+
+      <div>
+        <label for="unity">Unity</label>
+        <select name="unity" id="unity" v-model="unity">
+          <option disabled value>Choisissez</option>
+          <option v-for="(unity, index) in unities" v-bind:key="index">{{unity}}</option>
+        </select>
       </div>
 
       <button>Add recipe</button>
@@ -68,10 +76,37 @@ export default {
       calories: 0,
       fat: 0,
       carbs: 0,
+      unity: null,
+      image: null,
+      imageData: null,
+      uploadValue: 0,
+      unities: [
+        "g",
+        "kg",
+        "c. à s.",
+        "c. à c.",
+        "ml",
+        "cl",
+        "l",
+        "pincée",
+        "aucune",
+      ],
     };
   },
   methods: {
     addIng() {
+      console.log(
+        this.name,
+        this.slug,
+        this.introduction,
+        this.calories,
+        this.proteins,
+        this.calories,
+        this.fat,
+        this.carbs,
+        this.unity,
+        this.image
+      );
       if (this.name) {
         this.slug = slugify(this.name, {
           replacement: "-",
@@ -88,6 +123,7 @@ export default {
             proteins: this.proteins,
             fat: this.fat,
             carbs: this.carbs,
+            unity: this.unity,
             image: this.image,
           })
           .then(() => {

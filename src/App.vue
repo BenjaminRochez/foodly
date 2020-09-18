@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/recipes">Recipes</router-link> |
       <router-link to="/add">Add Recipe</router-link> |
-      <router-link to="/add">Add Ingredients</router-link>
+      <router-link to="/add-ingredient">Add Ingredients</router-link>
     </div>
     <router-view/>
   </div>
