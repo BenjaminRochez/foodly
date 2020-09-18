@@ -1,0 +1,219 @@
+.recipe {
+}
+
+.recipe__hero {
+    position: relative;
+    background-color: #fff5cf;
+    width: calc(100vw - 80px);
+    max-width: 1360px;
+    height: 480px;
+    position: relative;
+    margin: 0 auto;
+    h1 {
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: -90px;
+        left: 40px;
+        max-width: 600px;
+        color: #1e1e1e;
+        text-align: left;
+        line-height: 85px;
+    }
+    img {
+        right: -40px;
+        bottom: -110px;
+        position: absolute;
+        width: 50%;
+    }
+}
+
+.recipe__intro {
+    font-size: 32px;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 100px 40px 20px 40px;
+    color: #66686e;
+    font-weight: 400;
+    text-align: left;
+}
+
+.recipe__content {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 80px);
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 40px 0 140px 0;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+}
+
+.recipe__ingredients {
+    max-width: 440px;
+    min-width: 420px;
+    margin-right: 80px;
+    margin-left: 40px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.recipe__ingredients .bag, .recipe__ingredients .nutrition{
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    line-height: 22px;
+    background-color: #ebebeb;
+    padding: 12px;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    width: 100%;
+}
+
+.recipe__ingredients table {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    list-style: none;
+    background-color: #f1f1f1;
+    padding: 16px 16px 0 16px;
+    width: 100%;
+
+    tr {
+        height: 40px;
+        vertical-align: top;
+    }
+    td {
+        &:first-child {
+            text-align: right;
+            font-weight: 600;
+            text-transform: capitalize;
+            white-space: nowrap;
+        }
+
+        &:last-child {
+            padding-left: 20px;
+        }
+    }
+}
+
+.recipe__method {
+    width: 100%;
+    padding-right: 40px;
+
+    ul {
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+        list-style: none;
+        padding: 0;
+    }
+
+    li{
+        padding-bottom: 30px;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        color: #66686e;
+        line-height: 22px;
+    }
+
+    .recipe__step {
+        color: #000;
+        padding-bottom: 8px;
+        font-weight: 600;
+    }
+}
+
+.heading__wrapper {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .recipe__meta {
+        margin-left: auto;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+
+.recipe__method .heading__wrapper .prep_time,
+.recipe__method .heading__wrapper .servings,
+.recipe__method .heading__wrapper .total_time {
+    font-weight: 600;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: right;
+
+    &:after {
+        font-weight: 800;
+        border-top: 2px solid #000;
+        text-transform: uppercase;
+        padding-top: 3px;
+        margin-top: 3px;
+        font-size: 11px;
+        text-align: right;
+        margin-left: 20px;
+    }
+}
+
+.recipe__method .heading__wrapper .prep_time:after {
+    content: "Prep Time";
+}
+
+.recipe__method .heading__wrapper .total_time:after {
+    content: "Total Time";
+}
+
+.recipe__method .heading__wrapper .servings:after {
+    content: "Serves";
+}
+
+
+.nutrition{
+    ul{
+        padding: 0;
+        list-style-type: none;
+    }
+    li{
+        display: inline-block;
+        margin: 0 10px;
+        span{
+            display: block;
+            text-align: center;
+        }
+    }
+    img{
+        width: 32px;
+    }
+}
