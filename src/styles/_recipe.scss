@@ -66,7 +66,8 @@
     align-self: flex-start;
 }
 
-.recipe__ingredients .bag, .recipe__ingredients .nutrition{
+.recipe__ingredients .bag,
+.recipe__ingredients .nutrition {
     font-weight: 600;
     font-size: 16px;
     color: #000;
@@ -129,7 +130,7 @@
         padding: 0;
     }
 
-    li{
+    li {
         padding-bottom: 30px;
         display: flex;
         -webkit-box-orient: vertical;
@@ -199,21 +200,93 @@
     content: "Serves";
 }
 
-
-.nutrition{
-    ul{
+.nutrition {
+    ul {
         padding: 0;
         list-style-type: none;
     }
-    li{
+    li {
         display: inline-block;
         margin: 0 10px;
-        span{
+        span {
             display: block;
             text-align: center;
         }
     }
-    img{
+    img {
         width: 32px;
+    }
+}
+
+// RECIPES
+
+.recipes__wrapper {
+    display: grid;
+    margin: 0 auto 100px auto;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-auto-rows: minmax(340px, auto);
+    flex-wrap: wrap;
+    position: relative;
+    min-height: calc(100vh - 350px);
+    padding: 0 20px;
+    grid-gap: 10px;
+
+    a {
+        -webkit-box-flex: 1;
+        transform: scale(1);
+        flex: 1 1 200px;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(0.96);
+        }
+    }
+
+    img {
+        width: 100%;
+        margin-top: auto;
+    }
+}
+
+.recipes__wrapper>:first-child {
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+    padding: 80px;
+    h3{
+        font-size: 32px;
+        letter-spacing: 6px;
+        line-height: 32px;
+    }
+}
+
+.recipes__wrapper>* {
+    margin: 0;
+    text-decoration: none;
+    color: #1e1e1e;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.recipes__wrapper>* .text__wrapper {
+    margin-top: auto;
+}
+
+.text__wrapper {
+    h3 {
+        font-size: 16px;
+        letter-spacing: 2.8px;
+        line-height: 20px;
+        
+        padding: 0 22px;
+        font-weight: 900;
+        margin: 0;
+        text-transform: uppercase;
+        color: #1e1e1e;
     }
 }

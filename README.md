@@ -1,25 +1,17 @@
-# foodly
+# foodly-yummy
 
-## Project setup
-```
-yarn install
-```
+## Todo
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+- [ ] Update a recipe
+- [ ] Delete a recipe
+- [ ] Update an ingredient
+- [ ] Add to the shopping bag
+- [ ] Add to the calendar
+- [ ] User authentication
+- [ ] Recipes are linked to the user 
+- [ ] Theming forms
+- [ ] Add colors palett for recipes
+- [x] Theming recipe list view
+- [ ] Recipe list pagination
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# foodly
