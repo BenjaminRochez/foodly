@@ -91,6 +91,13 @@
     width: 100%;
 }
 
+.bag{
+    cursor: pointer;
+    &:hover{
+        background-color: #d6d6d6;
+    }
+}
+
 .recipe__ingredients table {
     font-size: 16px;
     font-weight: 400;

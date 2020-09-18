@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Recipes from '../views/Recipes.vue'
 
 
 Vue.use(VueRouter)
@@ -14,7 +15,7 @@ const routes = [
   {
     path: '/',
     name: 'Recipes',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Recipes.vue')
+    component: Recipes
   },
   {
     path: '/add',
@@ -23,9 +24,21 @@ const routes = [
   },
 
   {
+    path: '/profil',
+    name: 'Profil',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Profil.vue')
+  },
+
+  {
     path: '/add-ingredient',
     name: 'AddIng',
     component: () => import(/* webpackChunkName: "about" */ '../views/AddIng.vue')
+  },
+  {
+    
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Cart.vue')
   }
 ]
 

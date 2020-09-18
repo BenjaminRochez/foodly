@@ -7,7 +7,7 @@
 - [ ] Update an ingredient
 - [ ] Add to the shopping bag
 - [ ] Add to the calendar
-- [ ] User authentication
+- [x] User authentication
 - [ ] Recipes are linked to the user 
 - [ ] Theming forms
 - [ ] Add colors palett for recipes

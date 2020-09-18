@@ -16,7 +16,7 @@
           <img v-if="uploadValue === 100" class="preview" height="268" width="356" :src="image" />
         </div>
       </div>
-
+ 
       <div>
         <label for="name">Name of the ingredient</label>
         <input type="text" name="name" v-model="name" id="name" />
@@ -95,18 +95,6 @@ export default {
   },
   methods: {
     addIng() {
-      console.log(
-        this.name,
-        this.slug,
-        this.introduction,
-        this.calories,
-        this.proteins,
-        this.calories,
-        this.fat,
-        this.carbs,
-        this.unity,
-        this.image
-      );
       if (this.name) {
         this.slug = slugify(this.name, {
           replacement: "-",

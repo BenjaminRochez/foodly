@@ -34,13 +34,15 @@
           </div>
           <table>
             <tbody>
-              <tr v-for="(ing, index) in this.ingredients" :key="index">
+              <tr v-for="(ing, index) in ingredients" :key="index">
                 <td>{{ing.quantity}} {{ing.unity}}</td>
                 <td>{{ing.name}}</td>
               </tr>
             </tbody>
           </table>
-          <div class="bag"></div>
+          <div class="bag" @click="fillCart">
+            Add to the shopping list
+          </div>
         </div>
 
         <div class="recipe__method">
@@ -76,7 +78,9 @@ export default {
       calories: 0,
       fat: 0,
       proteins: 0,
-      carbs: 0
+      carbs: 0,
+      cart: [],
+      detectCart: false
     };
   },
   methods: {
@@ -95,6 +99,8 @@ export default {
         });
       });
     },
+    fillCart: function(){
+    }
   },
   created() {
     let ref = db
@@ -108,6 +114,6 @@ export default {
         this.getIngredients();
       });
     });
-  },
+  }
 };
 </script>

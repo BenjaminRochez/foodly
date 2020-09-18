@@ -12,7 +12,6 @@ var config = {
     appId: process.env.VUE_APP_APP_ID
 };
 const firebaseApp = firebase.initializeApp(config);
-firebase.analytics();
 
 /// export firestore database
 export default firebaseApp.firestore()  
