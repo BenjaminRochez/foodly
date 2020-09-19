@@ -29,9 +29,11 @@ export default {
           let cart = doc.data();
           cart.id = doc.id;
           this.cart.push(cart);
-          cart.ingredients.forEach((ing) => {
-            this.ingredients.push(ing);
-          });
+          if (cart.ingredients) {
+            cart.ingredients.forEach((ing) => {
+              this.ingredients.push(ing);
+            });
+          }
         });
       });
   },

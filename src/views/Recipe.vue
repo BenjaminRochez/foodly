@@ -40,9 +40,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="bag" @click="fillCart">
-            Add to the shopping list
-          </div>
+          <div class="bag" @click="fillCart">Add to the shopping list</div>
         </div>
 
         <div class="recipe__method">
@@ -68,6 +66,7 @@
 
 <script>
 import db from "@/firebase/init";
+import firebase from "firebase";
 
 export default {
   name: "Recipe",
@@ -80,7 +79,8 @@ export default {
       proteins: 0,
       carbs: 0,
       cart: [],
-      detectCart: false
+      uid: null,
+      newIngredients: null,
     };
   },
   methods: {
@@ -99,10 +99,54 @@ export default {
         });
       });
     },
-    fillCart: function(){
-    }
+    fillCart: function () {
+      db.collection("carts")
+        .doc(this.uid)
+        .get()
+        .then((snapshot) => {
+          console.log(snapshot);
+          if (snapshot.exists) {
+            console.log("existe");
+            this.newIngredients = snapshot.data().ingredients;
+            
+            this.ingredients.forEach(el =>{
+              var ing = {
+                name: el.name,
+                quantity: el.quantity
+              }
+              this.newIngredients.push(ing);
+            })
+            console.log(this.newIngredients);
+            this.createCart();
+          } else {
+            this.newIngredients = this.ingredients;
+            this.createCart();
+          }
+        });
+    },
+
+    createCart: function () {
+      db.collection("carts")
+        .doc(this.uid)
+        .set({
+          ingredients: this.newIngredients
+        })
+        .then(() => {
+          console.log("Added to the cart");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
   created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.uid = user.uid;
+        console.log(this.uid);
+      }
+    });
+
     let ref = db
       .collection("recipes")
       .where("slug", "==", this.$route.params.recipe_slug);
@@ -114,6 +158,6 @@ export default {
         this.getIngredients();
       });
     });
-  }
+  },
 };
 </script>
