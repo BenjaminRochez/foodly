@@ -129,7 +129,8 @@ export default {
             prep_steps: this.steps,
             prep_time: this.prep_time,
             total_time: this.total_time,
-            image: this.image
+            image: this.image,
+            calories: this.calories
           })
           .then(() => {
             var slug = this.slug;

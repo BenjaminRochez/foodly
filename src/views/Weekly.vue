@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p>{{weekdays}}</p>
+    <p>{{ weekdays }}</p>
     <div v-for="(weekday, index) in weekdays" v-bind:key="index">
-      <h2>{{ weekday.date }}</h2>
+      <h2>{{ weekday.date }} | {{weekday.totalCalorie}}</h2>
       <draggable group="meals" v-bind:key="forceKey">
         <div v-for="(meal, index) in weekday.meals" v-bind:key="index">
           {{ meal }}
@@ -24,9 +24,11 @@ export default {
   },
   data() {
     return {
-      weekdays: [],
+      weekdays: [
+      ],
       meals: [],
-      forceKey: 0
+      calories: [],
+      forceKey: 0,
     };
   },
   methods: {
@@ -37,10 +39,13 @@ export default {
           (o) => o.date === this.weekdays[i].time
         );
         this.weekdays[i].meals = meals;
-        if(i === 6){
-            this.forceKey += 1;
+        if (i === 6) {
+          this.forceKey += 1;
         }
       }
+    },
+    getCalories: function(){
+
     },
     getWeekly: function () {
       for (var i = 0; i < 7; i++) {
@@ -53,6 +58,12 @@ export default {
             this.getMeal();
           }
           snap.forEach((element) => {
+            if(this.weekdays[j - 1].totalCalorie){
+              this.weekdays[j - 1].totalCalorie = this.weekdays[j - 1].totalCalorie + element.data().calories;
+            }else{
+              this.weekdays[j - 1].totalCalorie = element.data().calories;
+            }
+            
             this.meals.push(element.data());
           });
         });
