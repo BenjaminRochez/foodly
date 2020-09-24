@@ -106,7 +106,6 @@ export default {
         .then((snapshot) => {
           console.log(snapshot);
           if (snapshot.exists) {
-            console.log("existe");
             this.newIngredients = snapshot.data().ingredients;
             
             this.ingredients.forEach(el =>{
